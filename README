@@ -118,11 +118,11 @@ npm run dev
 
 ## 📑 Read Documentation
 
-check out our [documentation](https://github.com/ilhamrdh/app-employee-management.git/blob/main/docs/README.md) for more information on how to use this project.
+check out our [documentation](https://github.com/ilhamrdh/app-employee-management/blob/main/server/doc/swagger.yaml) for more information on how to use this project.
 
 ## Entity Relationship Diagram (ERD)
 
-![ERD](https://github.com/ilhamrdh/app-employee-management.git/blob/main/docs/erd-employee.png)
+![ERD](https://github.com/ilhamrdh/app-employee-management/blob/main/erd-employee.png)
 
 ## 📝 License
 
