@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  HRD
+  EMPLOYEE
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique
+  password    String
+  role        Role
+  employee    Employee? @relation(fields: [employee_id], references: [id])
+  employee_id Int?
+
+  @@map("users")
+}
+
+model Employee {
+  id            Int               @id @default(autoincrement())
+  name          String
+  position      String?
+  salary        Float?
+  created_at    DateTime          @default(now())
+  updated_at    DateTime          @updatedAt
+  history       EmployeeHistory[]
+  User          User[]
+  Department    Department?       @relation(fields: [department_id], references: [id])
+  department_id Int?
+  is_deleted    Boolean           @default(false)
+
+  @@map("employees")
+}
+
+model EmployeeHistory {
+  id                Int      @id @default(autoincrement())
+  employee_id       Int
+  changed_at        DateTime @default(now())
+  changed_by        String?
+  changed_type      String?
+  old_name          String?
+  old_position      String?
+  old_salary        Float?
+  old_department_id Int?
+  new_name          String?
+  new_position      String?
+  new_salary        Float?
+  new_department_id Int?
+
+  employee Employee @relation(fields: [employee_id], references: [id], onDelete: Cascade)
+
+  @@map("employee_history")
+}
+
+model Department {
+  id         Int                 @id @default(autoincrement())
+  name       String
+  created_at DateTime            @default(now())
+  updated_at DateTime            @updatedAt
+  history    DepartmentHistory[]
+  employees  Employee[]
+
+  @@map("departments")
+}
+
+model DepartmentHistory {
+  id            Int      @id @default(autoincrement())
+  department_id Int
+  changed_at    DateTime @default(now())
+  changed_by    String?
+  old_name      String?
+  new_name      String?
+
+  department Department @relation(fields: [department_id], references: [id], onDelete: Cascade)
+
+  @@map("department_history")
+}

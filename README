@@ -1,0 +1,129 @@
+# Employee Management System 💼👥
+
+Welcome to the **Employee Management System** project, designed to help businesses streamline and simplify their HR processes. With a solid architecture and modern tech stack, this app ensures that managing employee data, roles, and permissions is a breeze. Let’s take a deep dive into the tech stack and features that power this system! 🚀
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend (Server-side) 🌐
+
+-   **Node.js (Express with TypeScript)**: The backend is powered by Express, built with TypeScript for strong typing and better maintainability.
+-   **Prisma ORM**: We use Prisma for easy, type-safe database queries that help us interact smoothly with our PostgreSQL database.
+-   **PostgreSQL**: A reliable, open-source relational database that stores employee data with high performance.
+-   **Swagger Documentation**: Clear and interactive API documentation powered by Swagger, so developers can easily test and explore the backend endpoints.
+
+### Frontend (Client-side) 💻
+
+-   **React with Vite (TypeScript)**: A fast and modern frontend built using React, with Vite as the build tool, ensuring quick hot-reloading and optimal build performance.
+-   **Shadcn (Tailwind CSS)**: A beautiful, responsive UI built with Tailwind CSS for a sleek, user-friendly experience, and Shadcn for ready-made, customizable components.
+-   **Axios**: Efficiently handle HTTP requests with Axios to communicate seamlessly with the backend.
+
+### Authentication 🔑
+
+-   **Role-Based Authentication**: Implemented role-based access control (RBAC), ensuring different levels of access for various users (admins, managers, employees), improving security and usability.
+
+### Database Design 🗄️
+
+-   **Entity Relationship Diagram (ERD)**: The database schema and structure have been carefully designed, and an ERD is available to visualize relationships between tables like employees, roles, departments, and more.
+
+---
+
+## ✨ Features
+
+### 1. **Employee Management**
+
+-   Add, edit, delete, and view employee profiles.
+-   Manage key employee data including personal information, job titles, and salary details.
+
+### 2. **Role-Based Access Control (RBAC)**
+
+-   Admin users can manage roles and permissions, ensuring each user has access to appropriate resources.
+-   Different access levels: Admin, Manager, Employee.
+
+### 3. **User Authentication**
+
+-   Secure login and session management.
+-   Role-specific dashboard views, ensuring personalized experiences for every type of user.
+
+### 4. **Database-Driven Design**
+
+-   Fully integrated with a PostgreSQL database, storing all the employee data in a structured and easily queryable format.
+-   High scalability for businesses with growing employee bases.
+
+### 5. **API Documentation (Swagger)**
+
+-   Easily test and interact with the backend API through a beautifully documented Swagger UI, making it developer-friendly.
+
+---
+
+## 🚀 How to Run the Project
+
+### Prerequisites
+
+-   Node.js (>=14.x)
+-   PostgreSQL (>=12.x)
+
+### Steps to Run Locally
+
+#### 1. **Clone the Repository**
+
+```bash
+git clone https://github.com/ilhamrdh/app-employee-management.git
+cd employee-management
+```
+
+#### 2. **Backend Setup**
+
+###### 2.1. Install Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+###### 2.2. Run migrations to set up the database schema
+
+```bash
+npx prisma migrate dev --name init
+```
+
+###### 2.3. Start the backend server:
+
+```bash
+npm run build
+npm run start
+```
+
+or
+
+```bash
+npx ts-node src/index.ts
+```
+
+#### 2. **Frontend Setup**
+
+###### 2.1. Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+###### 2.2. Start the frontend server:
+
+```bash
+npm run dev
+```
+
+## 📑 Read Documentation
+
+check out our [documentation](https://github.com/ilhamrdh/app-employee-management.git/blob/main/docs/README.md) for more information on how to use this project.
+
+## Entity Relationship Diagram (ERD)
+
+![ERD](https://github.com/ilhamrdh/app-employee-management.git/blob/main/docs/erd-employee.png)
+
+## 📝 License
+
+This project is released under the [MIT License](https://opensource.org/licenses/MIT).
